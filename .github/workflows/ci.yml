@@ -1,0 +1,20 @@
+name: repository-checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Audit public repository
+        run: python scripts/audit_repository.py
+      - name: Unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Compile Python files
+        run: python -m compileall -q augmentation reference experiments scripts tests

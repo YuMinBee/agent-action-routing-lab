@@ -1,0 +1,45 @@
+{
+  "seed": 42,
+  "split": {
+    "kind": "GroupKFold",
+    "n_splits": 5,
+    "group_key": "root_session",
+    "augment_validation": false
+  },
+  "backbone": "intfloat/multilingual-e5-base",
+  "architecture": {
+    "pooling": ["cls", "masked_mean"],
+    "structured_feature_dim": 93,
+    "hidden_dims": [768, 256],
+    "dropout": 0.2,
+    "num_labels": 14
+  },
+  "input": {
+    "sim_max_length": 512,
+    "au_max_length": 448,
+    "views": [0, 1, 2, 3, 4],
+    "sections": [
+      "current_prompt",
+      "action_trace",
+      "last_result",
+      "paths_and_arguments",
+      "session_state"
+    ]
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "mixed_precision": true,
+    "gradient_clipping": 1.0,
+    "checkpoint_selection": "macro_f1"
+  },
+  "augmentation": {
+    "sim": ["multi_view", "safe_history_mining", "weighted_original_view"],
+    "au": ["multi_view", "paraphrase", "safe_history_mining"],
+    "rule": "apply only to the training partition of each fold"
+  },
+  "notes": [
+    "Epoch and view-weight choices were component-specific; inspect each training entry point and manifest.",
+    "Do not infer production performance from one selected fold.",
+    "Do not reuse future-session metadata when reconstructing mined rows."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "created_at": "20260715",
+  "strategy": "Gamble 1: exact 0.7898346366 anchor with wider KLUE candidate margin",
+  "base_submit": "submit_champion_788794_classbias_simonly_20260712",
+  "sim": {
+    "model/sim_weight": 0.6,
+    "model/sim_alt_weight": 0.4,
+    "max_length": 512
+  },
+  "au": {
+    "model/au": "paraphrase plus old-mined229 epoch4",
+    "model/au_alt": "paraphrase-only epoch6",
+    "weights": {
+      "au": 0.5,
+      "au_alt": 0.5
+    },
+    "max_length": 448,
+    "input_format_changed": false
+  },
+  "model_sha256": {
+    "sim": "2df045c73c74bc5ae10db6189184b821c5764a2a9b6f627d71543b48b789ef23",
+    "sim_alt": "6be3136f320bce14766e7e8e5cd3626164682f2c2d0ca15b1a0d27e288335f35",
+    "au": "75c637ba49839de613d7d7bb762e3929ed634133799be0794507db1213952a9e",
+    "au_alt": "fcca0d8ff71dae6c25d7e10d1dd4d4e3e600e449f0af67ce0a6c5767dadc6c44",
+    "sim_klue": "96e49a7c4ba053f52d37faf40cf4f4f7ea816ed3d9a94890fe943e43563cb0e2"
+  },
+  "postprocess": {
+    "sim_class_bias": {
+      "enabled": true,
+      "crossfit_delta_macro_f1": 0.001616398299209676,
+      "positive_folds": 5
+    },
+    "au_class_bias": {
+      "enabled": false
+    },
+    "klue_tiebreak": {
+      "domain": "sim_only",
+      "conditions": "SIM-A top1 != SIM-B top1; raw blend top2 margin < 0.08; KLUE top1 agrees with A or B; KLUE confidence >= 0.55",
+      "action": "hard override final class after existing SIM class bias",
+      "oof_folds": [0, 1],
+      "oof_changed_rows": 177,
+      "oof_delta_macro_f1": 0.000264,
+      "both_folds_positive": false
+    }
+  },
+  "output_id_mapping": true
+  ,"packaging": {
+    "sim_alt": "exact int8 q-delta from model/sim/model_int8.pt",
+    "au_alt": "exact int8 q-delta from model/au/model_int8.pt",
+    "prediction_change": "none"
+  }
+}

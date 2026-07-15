@@ -1,0 +1,58 @@
+{
+  "competition": {
+    "metric": "macro_f1",
+    "public_score": 0.7899327253,
+    "rank": 46,
+    "teams": 269
+  },
+  "labels": [
+    "apply_patch",
+    "ask_user",
+    "edit_file",
+    "glob_pattern",
+    "grep_search",
+    "lint_or_typecheck",
+    "list_directory",
+    "plan_task",
+    "read_file",
+    "respond_only",
+    "run_bash",
+    "run_tests",
+    "web_search",
+    "write_file"
+  ],
+  "router": {
+    "au_id_prefix": "sess_au",
+    "fallback_domain": "sim"
+  },
+  "sim": {
+    "backbone": "intfloat/multilingual-e5-base",
+    "max_length": 512,
+    "models": [
+      {"name": "sim_a", "weight": 0.6},
+      {"name": "sim_b", "weight": 0.4}
+    ],
+    "class_bias": "configs/class_bias_final.json",
+    "klue_tiebreak": {
+      "enabled": true,
+      "candidate_disagreement_required": true,
+      "blend_top2_margin_lt": 0.08,
+      "klue_confidence_gte": 0.55,
+      "klue_must_match_candidate": true,
+      "action": "hard_override_after_class_bias"
+    }
+  },
+  "au": {
+    "backbone": "intfloat/multilingual-e5-base",
+    "max_length": 448,
+    "models": [
+      {"name": "au_paraphrase_plus_mined", "weight": 0.5, "epoch": 4},
+      {"name": "au_paraphrase", "weight": 0.5, "epoch": 6}
+    ],
+    "class_bias": null
+  },
+  "output": {
+    "join_key": "id",
+    "path": "output/submission.csv"
+  }
+}

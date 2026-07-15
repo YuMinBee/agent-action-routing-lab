@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Environments and editors
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+*.code-workspace
+
+# Generated experiment outputs
+outputs/
+artifacts/
+logs/
+runs/
+wandb/
+
+# Competition data and generated row-level data
+data/*
+!data/README.md
+*.jsonl
+*.parquet
+*.feather
+*.arrow
+*.npy
+*.npz
+*.pkl
+*.pickle
+
+# Model checkpoints
+models/*
+!models/README.md
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.safetensors
+*.onnx
+
+# Submission and hand-off archives
+*.zip
+*.7z
+*.tar
+*.tar.gz
+submission.csv
+submit/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

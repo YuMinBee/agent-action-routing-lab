@@ -1,0 +1,52 @@
+{
+  "labels": [
+    "apply_patch",
+    "ask_user",
+    "edit_file",
+    "glob_pattern",
+    "grep_search",
+    "lint_or_typecheck",
+    "list_directory",
+    "plan_task",
+    "read_file",
+    "respond_only",
+    "run_bash",
+    "run_tests",
+    "web_search",
+    "write_file"
+  ],
+  "bias_sim": [
+    -0.4278571428571428,
+    0.05214285714285716,
+    -0.04785714285714282,
+    0.14214285714285713,
+    -0.04785714285714282,
+    0.3021428571428571,
+    0.3421428571428571,
+    -0.04785714285714282,
+    -0.04785714285714282,
+    -0.04785714285714282,
+    -0.19785714285714284,
+    0.05214285714285716,
+    0.12214285714285716,
+    -0.14785714285714285
+  ],
+  "bias_au": [
+    -0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0
+  ],
+  "space": "log_probability",
+  "fit": "domain-specific 5-fold crossfit shrink selection, full OOF final bias"
+}
