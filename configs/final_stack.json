@@ -3,7 +3,8 @@
     "metric": "macro_f1",
     "public_score": 0.7899327253,
     "rank": 46,
-    "teams": 269
+    "teams": 269,
+    "artifact_name": "submit_champion_789834_gamble1_klue_m008_c055_20260715"
   },
   "labels": [
     "apply_patch",

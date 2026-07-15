@@ -1,5 +1,8 @@
 {
   "created_at": "20260715",
+  "public_score": 0.7899327253,
+  "result_status": "confirmed",
+  "artifact_name": "submit_champion_789834_gamble1_klue_m008_c055_20260715",
   "strategy": "Gamble 1: exact 0.7898346366 anchor with wider KLUE candidate margin",
   "base_submit": "submit_champion_788794_classbias_simonly_20260712",
   "sim": {
