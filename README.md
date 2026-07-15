@@ -1,6 +1,8 @@
-# Agent Action Routing Lab
+# AgentFlowLens
 
-[![repository-checks](https://github.com/YuMinBee/agent-action-routing-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/YuMinBee/agent-action-routing-lab/actions/workflows/ci.yml)
+[![repository-checks](https://github.com/YuMinBee/AgentFlowLens/actions/workflows/ci.yml/badge.svg)](https://github.com/YuMinBee/AgentFlowLens/actions/workflows/ci.yml)
+
+**AI Agent Next-Action Decision Routing Case Study**
 
 > **모델을 키우는 문제로 시작해, 데이터 생성 과정과 오류 구조를 찾아내는 문제로 다시 정의했습니다.**
 
